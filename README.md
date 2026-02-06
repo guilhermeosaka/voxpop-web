@@ -1,5 +1,7 @@
 Beta preview: https://voxpop-web.vercel.app/
 
+> [!NOTE]
+> Non-prod SMS verification code: `123456`
 
 ## Getting Started
 
