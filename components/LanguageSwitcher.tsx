@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import Image from "next/image";
 
 const languages = [
     { code: "en-US", name: "English", flag: "us" },
@@ -51,12 +52,15 @@ export function LanguageSwitcher() {
                  transition-all duration-200"
                 aria-label="Select language"
             >
-                <img
-                    src={`https://flagcdn.com/w40/${currentLanguage.flag}.png`}
-                    srcSet={`https://flagcdn.com/w80/${currentLanguage.flag}.png 2x`}
-                    alt={`${currentLanguage.name} flag`}
-                    className="w-5 h-4 object-cover rounded-sm"
-                />
+                <div className="relative w-5 h-4 rounded-sm overflow-hidden">
+                    <Image
+                        src={`https://flagcdn.com/w40/${currentLanguage.flag}.png`}
+                        alt={`${currentLanguage.name} flag`}
+                        fill
+                        className="object-cover"
+                        sizes="20px"
+                    />
+                </div>
                 <span className="text-sm font-medium">{currentLanguage.name}</span>
                 <svg
                     className={`w-4 h-4 transition-transform ${isOpen ? "rotate-180" : ""}`}
@@ -84,12 +88,15 @@ export function LanguageSwitcher() {
                           transition-colors
                           ${isSelected ? "bg-emerald-50 dark:bg-emerald-950/30" : ""}`}
                             >
-                                <img
-                                    src={`https://flagcdn.com/w40/${language.flag}.png`}
-                                    srcSet={`https://flagcdn.com/w80/${language.flag}.png 2x`}
-                                    alt={`${language.name} flag`}
-                                    className="w-5 h-4 object-cover rounded-sm"
-                                />
+                                <div className="relative w-5 h-4 rounded-sm overflow-hidden flex-shrink-0">
+                                    <Image
+                                        src={`https://flagcdn.com/w40/${language.flag}.png`}
+                                        alt={`${language.name} flag`}
+                                        fill
+                                        className="object-cover"
+                                        sizes="20px"
+                                    />
+                                </div>
                                 <span className="flex-1 text-sm font-medium text-zinc-900 dark:text-zinc-100">
                                     {language.name}
                                 </span>
