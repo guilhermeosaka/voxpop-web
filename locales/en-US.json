@@ -1,0 +1,86 @@
+{
+    "common": {
+        "appName": "VoxPop",
+        "language": "Language",
+        "loading": "Loading...",
+        "error": "Error",
+        "success": "Success"
+    },
+    "login": {
+        "welcome": "Welcome",
+        "verifyCode": "Verify Code",
+        "phonePrompt": "Enter your phone number to continue",
+        "codePrompt": "We sent a code to {{phoneNumber}}",
+        "phoneLabel": "Phone Number",
+        "phonePlaceholder": "Enter phone number",
+        "codeLabel": "Verification Code",
+        "continue": "Continue",
+        "verify": "Verify",
+        "sending": "Sending...",
+        "verifying": "Verifying...",
+        "resendCode": "Resend Code",
+        "resendTimer": "Resend in {{count}}s",
+        "changePhone": "Change phone number",
+        "termsText": "By continuing, you agree to our Terms of Service and Privacy Policy",
+        "errors": {
+            "invalidPhone": "Please enter a valid phone number",
+            "sendCodeFailed": "Failed to send verification code. Please try again.",
+            "invalidCode": "Please enter the 6-digit code",
+            "verifyFailed": "Invalid verification code. Please try again."
+        },
+        "noAccount": "Don't have an account?",
+        "createAccount": "Create account"
+    },
+    "signup": {
+        "title": "Create Account",
+        "subtitle": "Enter your phone number to get started",
+        "submit": "Create Account",
+        "alreadyHaveAccount": "Already have an account?",
+        "login": "Login here"
+    },
+    "home": {
+        "title": "Active Polls",
+        "subtitle": "Cast your vote and see what the world thinks.",
+        "createPoll": "Create Poll",
+        "login": "Login",
+        "logout": "Logout",
+        "noPolls": {
+            "title": "No polls yet",
+            "description": "Check back later for new polls."
+        }
+    },
+    "poll": {
+        "status": {
+            "active": "Active",
+            "closed": "Closed"
+        },
+        "mode": {
+            "single": "Single Choice",
+            "multiple": "Multiple Choice"
+        },
+        "createdByYou": "Created by you",
+        "create": {
+            "title": "Create New Poll",
+            "question": "Question",
+            "questionPlaceholder": "What do you want to ask?",
+            "expiresAt": "Expires At",
+            "voteMode": "Vote Mode",
+            "singleChoice": "Single Choice",
+            "multipleChoice": "Multiple Choice",
+            "options": "Options",
+            "optionPlaceholder": "Option {{number}}",
+            "addOption": "Add Option",
+            "removeOption": "Remove",
+            "submit": "Create Poll",
+            "creating": "Creating...",
+            "cancel": "Cancel",
+            "errors": {
+                "questionRequired": "Question is required",
+                "minOptions": "At least 2 options are required",
+                "emptyOption": "All options must have a value",
+                "createFailed": "Failed to create poll"
+            }
+        },
+        "loginToVote": "Log in to vote"
+    }
+}

@@ -1,0 +1,86 @@
+{
+    "common": {
+        "appName": "VoxPop",
+        "language": "Idioma",
+        "loading": "Carregando...",
+        "error": "Erro",
+        "success": "Sucesso"
+    },
+    "login": {
+        "welcome": "Bem-vindo",
+        "verifyCode": "Verificar Código",
+        "phonePrompt": "Digite seu número de telefone para continuar",
+        "codePrompt": "Enviamos um código para {{phoneNumber}}",
+        "phoneLabel": "Número de Telefone",
+        "phonePlaceholder": "Digite o número de telefone",
+        "codeLabel": "Código de Verificação",
+        "continue": "Continuar",
+        "verify": "Verificar",
+        "sending": "Enviando...",
+        "verifying": "Verificando...",
+        "resendCode": "Reenviar Código",
+        "resendTimer": "Reenviar em {{count}}s",
+        "changePhone": "Alterar número de telefone",
+        "termsText": "Ao continuar, você concorda com nossos Termos de Serviço e Política de Privacidade",
+        "errors": {
+            "invalidPhone": "Por favor, digite um número de telefone válido",
+            "sendCodeFailed": "Falha ao enviar código de verificação. Por favor, tente novamente.",
+            "invalidCode": "Por favor, digite o código de 6 dígitos",
+            "verifyFailed": "Código de verificação inválido. Por favor, tente novamente."
+        },
+        "noAccount": "Não tem uma conta?",
+        "createAccount": "Criar conta"
+    },
+    "signup": {
+        "title": "Criar Conta",
+        "subtitle": "Digite seu número de telefone para começar",
+        "submit": "Criar Conta",
+        "alreadyHaveAccount": "Já tem uma conta?",
+        "login": "Entre aqui"
+    },
+    "home": {
+        "title": "Enquetes Ativas",
+        "subtitle": "Dê seu voto e veja o que o mundo pensa.",
+        "createPoll": "Criar Enquete",
+        "login": "Entrar",
+        "logout": "Sair",
+        "noPolls": {
+            "title": "Nenhuma enquete ainda",
+            "description": "Volte mais tarde para novas enquetes."
+        }
+    },
+    "poll": {
+        "status": {
+            "active": "Ativa",
+            "closed": "Encerrada"
+        },
+        "mode": {
+            "single": "Escolha Única",
+            "multiple": "Múltipla Escolha"
+        },
+        "createdByYou": "Criado por você",
+        "create": {
+            "title": "Criar Nova Enquete",
+            "question": "Pergunta",
+            "questionPlaceholder": "O que você quer perguntar?",
+            "expiresAt": "Expira em",
+            "voteMode": "Modo de Votação",
+            "singleChoice": "Escolha Única",
+            "multipleChoice": "Múltipla Escolha",
+            "options": "Opções",
+            "optionPlaceholder": "Opção {{number}}",
+            "addOption": "Adicionar Opção",
+            "removeOption": "Remover",
+            "submit": "Criar Enquete",
+            "creating": "Criando...",
+            "cancel": "Cancelar",
+            "errors": {
+                "questionRequired": "A pergunta é obrigatória",
+                "minOptions": "Pelo menos 2 opções são necessárias",
+                "emptyOption": "Todas as opções devem ter um valor",
+                "createFailed": "Falha ao criar enquete"
+            }
+        },
+        "loginToVote": "Entre para votar"
+    }
+}
