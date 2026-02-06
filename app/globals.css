@@ -28,3 +28,7 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
 }
+
+button {
+  cursor: pointer;
+}

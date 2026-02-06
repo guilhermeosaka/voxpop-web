@@ -3,11 +3,11 @@
 import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useTranslation } from "react-i18next";
-import { PhoneNumberInput } from "@/components/PhoneNumberInput";
-import { CodeInput } from "@/components/CodeInput";
 import { generateCode, generateTokens } from "@/lib/api";
 import { useAuth } from "@/lib/auth";
 import { isValidPhoneNumber } from "react-phone-number-input";
+import {PhoneNumberInput} from "@/components/ui/PhoneNumberInput";
+import {CodeInput} from "@/components/ui/CodeInput";
 
 function LoginForm() {
     const router = useRouter();

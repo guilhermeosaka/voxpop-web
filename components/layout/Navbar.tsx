@@ -3,6 +3,7 @@
 import { useAuth } from "@/lib/auth";
 import { useTranslation } from "react-i18next";
 import Link from "next/link";
+import Image from "next/image";
 import {LanguageSwitcher} from "@/components/features/i18n/LanguageSwitcher";
 
 export function Navbar() {
@@ -15,15 +16,14 @@ export function Navbar() {
                 <div className="flex h-14 items-center justify-between gap-4">
                     {/* Logo and Tagline */}
                     <Link href="/" className="flex items-center gap-2 group">
-                        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-emerald-500 to-emerald-600 shadow-sm transition-transform group-hover:scale-105">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="currentColor"
-                                className="h-4 w-4 text-white"
-                            >
-                                <path d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 0 1 0 3.75H5.625a1.875 1.875 0 0 1 0-3.75Z" />
-                            </svg>
+                        <div className="flex h-8 w-8 items-center justify-center transition-transform group-hover:scale-105">
+                            <Image
+                                src="/voxpop-logo.svg"
+                                alt="Voxpop Logo"
+                                width={32}
+                                height={32}
+                                className="h-8 w-8"
+                            />
                         </div>
                         <div className="flex items-baseline gap-1.5">
                             <span className="text-base font-bold text-zinc-900 dark:text-zinc-50">

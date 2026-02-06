@@ -5,9 +5,9 @@ import { useRouter } from "next/navigation";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "@/lib/auth";
 import { createPoll, VoteMode } from "@/lib/api";
-import { Navbar } from "@/components/Navbar";
-import { DateTimePicker } from "@/components/DateTimePicker";
 import Link from "next/link";
+import {Navbar} from "@/components/layout/Navbar";
+import {DateTimePicker} from "@/components/ui/DateTimePicker";
 
 export default function CreatePollPage() {
     const router = useRouter();
@@ -275,7 +275,7 @@ export default function CreatePollPage() {
                             <button
                                 type="submit"
                                 disabled={loading}
-                                className="flex-1 py-3.5 px-6 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 disabled:from-emerald-400 disabled:to-emerald-500 disabled:cursor-not-allowed text-white font-semibold rounded-xl shadow-lg shadow-emerald-500/25 transition-all focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 dark:focus:ring-offset-zinc-900 active:scale-[0.98] cursor-pointer"
+                                className="flex-1 py-3.5 px-6 bg-emerald-600 hover:bg-emerald-700 disabled:bg-emerald-400 disabled:cursor-not-allowed text-white font-semibold rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 dark:focus:ring-offset-zinc-900"
                             >
                                 {loading ? (
                                     <span className="flex items-center justify-center gap-2">
