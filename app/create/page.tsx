@@ -85,7 +85,7 @@ export default function CreatePollPage() {
                 formattedExpiresAt = `${expiresAt}:00${tzSign}${tzHours}:${tzMinutes}`;
             }
 
-            const newPoll = await createPoll(
+            await createPoll(
                 {
                     question: question.trim(),
                     expiresAt: formattedExpiresAt,

@@ -5,6 +5,8 @@ import { getCountries, getCountryCallingCode } from "react-phone-number-input/in
 import en from "react-phone-number-input/locale/en.json";
 import type { CountryCode } from "libphonenumber-js";
 
+import Image from "next/image";
+
 interface CountrySelectProps {
     value: string;
     onChange: (country: string) => void;
@@ -63,7 +65,6 @@ export function CountrySelect({ value, onChange, disabled = false }: CountrySele
         setSearch("");
     };
 
-    const selectedCountryName = value ? en[value as keyof typeof en] || value : "Select";
     const selectedCallingCode = value ? `+${getCountryCallingCode(value as CountryCode)}` : "";
 
     return (
@@ -80,12 +81,15 @@ export function CountrySelect({ value, onChange, disabled = false }: CountrySele
                          transition-all duration-200 min-w-[120px]"
             >
                 {value && (
-                    <img
-                        src={`https://flagcdn.com/w40/${value.toLowerCase()}.png`}
-                        srcSet={`https://flagcdn.com/w80/${value.toLowerCase()}.png 2x`}
-                        alt={`${value} flag`}
-                        className="w-6 h-4 object-cover rounded-sm"
-                    />
+                    <div className="relative w-6 h-4 rounded-sm overflow-hidden">
+                        <Image
+                            src={`https://flagcdn.com/w40/${value.toLowerCase()}.png`}
+                            alt={`${value} flag`}
+                            fill
+                            className="object-cover"
+                            sizes="24px"
+                        />
+                    </div>
                 )}
                 <span className="text-sm font-medium">{selectedCallingCode}</span>
                 <svg
@@ -135,12 +139,15 @@ export function CountrySelect({ value, onChange, disabled = false }: CountrySele
                                                   transition-colors
                                                   ${isSelected ? "bg-emerald-50 dark:bg-emerald-950/30" : ""}`}
                                     >
-                                        <img
-                                            src={`https://flagcdn.com/w40/${country.toLowerCase()}.png`}
-                                            srcSet={`https://flagcdn.com/w80/${country.toLowerCase()}.png 2x`}
-                                            alt={`${country} flag`}
-                                            className="w-6 h-4 object-cover rounded-sm"
-                                        />
+                                        <div className="relative w-6 h-4 rounded-sm overflow-hidden flex-shrink-0">
+                                            <Image
+                                                src={`https://flagcdn.com/w40/${country.toLowerCase()}.png`}
+                                                alt={`${country} flag`}
+                                                fill
+                                                className="object-cover"
+                                                sizes="24px"
+                                            />
+                                        </div>
                                         <div className="flex-1 min-w-0">
                                             <div className="text-sm font-medium text-zinc-900 dark:text-zinc-100 truncate">
                                                 {countryName}

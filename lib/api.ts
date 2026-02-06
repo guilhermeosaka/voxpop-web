@@ -147,7 +147,7 @@ async function authenticatedFetch(
           Authorization: `Bearer ${newTokens.accessToken}`,
         },
       });
-    } catch (refreshError) {
+    } catch {
       // If refresh fails, clear auth and throw
       localStorage.removeItem("phoneNumber");
       localStorage.removeItem("accessToken");

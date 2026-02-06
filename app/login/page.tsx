@@ -8,7 +8,6 @@ import { CodeInput } from "@/components/CodeInput";
 import { generateCode, generateTokens } from "@/lib/api";
 import { useAuth } from "@/lib/auth";
 import { isValidPhoneNumber } from "react-phone-number-input";
-import Link from "next/link";
 
 function LoginForm() {
     const router = useRouter();

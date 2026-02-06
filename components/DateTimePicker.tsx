@@ -12,23 +12,16 @@ interface DateTimePickerProps {
 
 export function DateTimePicker({ value, onChange, disabled = false, label, optional = false }: DateTimePickerProps) {
     const [isOpen, setIsOpen] = useState(false);
-    const [selectedDate, setSelectedDate] = useState<Date | null>(null);
-    const [selectedTime, setSelectedTime] = useState("00:00");
     const [dropdownPosition, setDropdownPosition] = useState({ top: 0, left: 0, width: 0, maxHeight: 500 });
     const dropdownRef = useRef<HTMLDivElement>(null);
     const buttonRef = useRef<HTMLButtonElement>(null);
 
-    // Parse value on mount and when it changes
-    useEffect(() => {
-        if (value) {
-            const date = new Date(value);
-            setSelectedDate(date);
-            setSelectedTime(`${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`);
-        } else {
-            setSelectedDate(null);
-            setSelectedTime("00:00");
-        }
-    }, [value]);
+    // Derive state directly from props since this is a controlled component
+    const selectedDate = value ? new Date(value) : null;
+    // Format time from date or default to 00:00
+    const selectedTime = selectedDate
+        ? `${selectedDate.getHours().toString().padStart(2, '0')}:${selectedDate.getMinutes().toString().padStart(2, '0')}`
+        : "00:00";
 
     // Calculate dropdown position when opened
     useEffect(() => {
@@ -88,7 +81,6 @@ export function DateTimePicker({ value, onChange, disabled = false, label, optio
     }, [isOpen]);
 
     const handleDateSelect = (date: Date) => {
-        setSelectedDate(date);
         const [hours, minutes] = selectedTime.split(':');
         date.setHours(parseInt(hours), parseInt(minutes));
 
@@ -100,7 +92,6 @@ export function DateTimePicker({ value, onChange, disabled = false, label, optio
     };
 
     const handleTimeChange = (time: string) => {
-        setSelectedTime(time);
         if (selectedDate) {
             const [hours, minutes] = time.split(':');
             const newDate = new Date(selectedDate);
@@ -114,8 +105,6 @@ export function DateTimePicker({ value, onChange, disabled = false, label, optio
     };
 
     const handleClear = () => {
-        setSelectedDate(null);
-        setSelectedTime("00:00");
         onChange("");
         setIsOpen(false);
     };
@@ -128,10 +117,31 @@ export function DateTimePicker({ value, onChange, disabled = false, label, optio
         return time;
     };
 
+    // State for calendar navigation (current month being viewed)
+    const [viewDate, setViewDate] = useState(value ? new Date(value) : new Date());
+
+    // Sync viewDate when value changes, but only if month/year is different
+    useEffect(() => {
+        if (value) {
+            const newDate = new Date(value);
+            if (newDate.getMonth() !== viewDate.getMonth() || newDate.getFullYear() !== viewDate.getFullYear()) {
+                // eslint-disable-next-line react-hooks/set-state-in-effect
+                setViewDate(newDate);
+            }
+        }
+    }, [value, viewDate]);
+
+    const changeMonth = (delta: number) => {
+        const current = viewDate;
+        const newDate = new Date(current.getFullYear(), current.getMonth() + delta, 1);
+        setViewDate(newDate);
+    };
+
+    const currentMonth = viewDate;
+    const monthName = currentMonth.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' });
+
     // Generate calendar days
     const generateCalendar = () => {
-        const today = new Date();
-        const currentMonth = selectedDate || today;
         const year = currentMonth.getFullYear();
         const month = currentMonth.getMonth();
 
@@ -155,14 +165,6 @@ export function DateTimePicker({ value, onChange, disabled = false, label, optio
         return days;
     };
 
-    const changeMonth = (delta: number) => {
-        const current = selectedDate || new Date();
-        const newDate = new Date(current.getFullYear(), current.getMonth() + delta, 1);
-        setSelectedDate(newDate);
-    };
-
-    const currentMonth = selectedDate || new Date();
-    const monthName = currentMonth.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' });
     const days = generateCalendar();
     const weekDays = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
 

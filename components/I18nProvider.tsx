@@ -5,7 +5,7 @@ import { I18nextProvider } from "react-i18next";
 import i18n, { i18nConfig } from "@/lib/i18n";
 
 export function I18nProvider({ children }: { children: React.ReactNode }) {
-    const [isInitialized, setIsInitialized] = useState(false);
+    const [isInitialized, setIsInitialized] = useState(i18n.isInitialized);
 
     useEffect(() => {
         // Initialize i18n on client side
@@ -13,8 +13,6 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
             i18n.init(i18nConfig).then(() => {
                 setIsInitialized(true);
             });
-        } else {
-            setIsInitialized(true);
         }
     }, []);
 

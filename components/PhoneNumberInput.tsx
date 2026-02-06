@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { CountrySelect } from "./CountrySelect";
-import { parsePhoneNumber, AsYouType } from "libphonenumber-js";
+import { parsePhoneNumber, AsYouType, CountryCode } from "libphonenumber-js";
 
 interface PhoneNumberInputProps {
   value: string;
@@ -43,9 +43,10 @@ export function PhoneNumberInput({
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const input = e.target.value;
+
     // Format as you type
-    const formatter = new AsYouType(country as any);
-    const formatted = formatter.input(input);
+    const formatter = new AsYouType(country as CountryCode);
+    formatter.input(input);
 
     // Get the full international format
     const phoneNumber = formatter.getNumber();

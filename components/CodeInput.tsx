@@ -78,7 +78,7 @@ export function CodeInput({ value, onChange, onSubmit, disabled = false, error }
                 {Array.from({ length: CODE_LENGTH }).map((_, index) => (
                     <input
                         key={index}
-                        ref={(el) => (inputRefs.current[index] = el)}
+                        ref={(el) => { inputRefs.current[index] = el }}
                         type="text"
                         inputMode="numeric"
                         maxLength={1}
