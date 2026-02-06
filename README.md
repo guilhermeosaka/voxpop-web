@@ -1,4 +1,4 @@
-Beta preview: https://voxpop-web-git-web-1-guilhermeosakas-projects.vercel.app/
+Beta preview: https://voxpop-web.vercel.app/
 
 
 ## Getting Started

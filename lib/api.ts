@@ -11,6 +11,9 @@ export enum VoteMode {
   MultipleChoice = 2
 }
 
+const CORE_API_URL = process.env.NEXT_PUBLIC_CORE_API_URL || "http://localhost:5001";
+const IDENTITY_API_URL = process.env.NEXT_PUBLIC_IDENTITY_API_URL || "http://localhost:5002";
+
 export interface Poll {
   id: string;
   question: string;
@@ -32,14 +35,14 @@ export async function fetchPolls(token?: string): Promise<Poll[]> {
 
     if (token) {
       // Use authenticated fetch with auto-refresh
-      res = await authenticatedFetch("http://localhost:5001/polls", {
+      res = await authenticatedFetch(`${CORE_API_URL}/polls`, {
         method: "GET",
         cache: "no-store",
         token,
       });
     } else {
       // Anonymous fetch
-      res = await fetch("http://localhost:5001/polls", {
+      res = await fetch(`${CORE_API_URL}/polls`, {
         cache: "no-store",
       });
     }
@@ -57,7 +60,7 @@ export async function fetchPolls(token?: string): Promise<Poll[]> {
 }
 
 export async function votePoll(pollId: string, optionId: string, token: string): Promise<void> {
-  const res = await authenticatedFetch(`http://localhost:5001/polls/${pollId}/votes/${optionId}`, {
+  const res = await authenticatedFetch(`${CORE_API_URL}/polls/${pollId}/votes/${optionId}`, {
     method: "PUT",
     headers: {
       "Accept": "application/json"
@@ -71,7 +74,7 @@ export async function votePoll(pollId: string, optionId: string, token: string):
 }
 
 export async function deleteVote(pollId: string, optionId: string, token: string): Promise<void> {
-  const res = await authenticatedFetch(`http://localhost:5001/polls/${pollId}/votes/${optionId}`, {
+  const res = await authenticatedFetch(`${CORE_API_URL}/polls/${pollId}/votes/${optionId}`, {
     method: "DELETE",
     headers: {
       "Accept": "application/json"
@@ -92,7 +95,7 @@ export interface CreatePollRequest {
 }
 
 export async function createPoll(pollData: CreatePollRequest, token: string): Promise<Poll> {
-  const res = await authenticatedFetch("http://localhost:5001/polls", {
+  const res = await authenticatedFetch(`${CORE_API_URL}/polls`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -160,7 +163,7 @@ async function authenticatedFetch(
 }
 
 // Authentication API
-const AUTH_API_BASE = "http://localhost:5002";
+const AUTH_API_BASE = IDENTITY_API_URL;
 
 export interface CreateUserRequest {
   phoneNumber: string;
