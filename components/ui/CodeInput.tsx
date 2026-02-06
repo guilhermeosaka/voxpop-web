@@ -88,7 +88,7 @@ export function CodeInput({ value, onChange, onSubmit, disabled = false, error }
                         onPaste={handlePaste}
                         disabled={disabled}
                         className="w-12 h-14 text-center text-2xl font-semibold border border-zinc-200 rounded-lg 
-                     focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500
+                     focus:outline-none focus:ring-2 focus:ring-voxpop-gold focus:border-voxpop-gold
                      disabled:opacity-50 disabled:cursor-not-allowed
                      dark:bg-zinc-900 dark:border-zinc-800 dark:text-zinc-100
                      transition-all"

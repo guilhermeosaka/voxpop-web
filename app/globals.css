@@ -3,6 +3,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --voxpop-gold: #ffd053;
+  --voxpop-brown: #370e0e;
 }
 
 @theme inline {
@@ -10,6 +12,11 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-voxpop-gold: var(--voxpop-gold);
+  --color-voxpop-brown: var(--voxpop-brown);
+  --color-voxpop-gold-dark: #e6ba4a;
+  --color-voxpop-gold-light: #fff4d6;
+  --color-voxpop-brown-light: #5a1a1a;
 }
 
 @media (prefers-color-scheme: dark) {

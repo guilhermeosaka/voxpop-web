@@ -137,10 +137,10 @@ function LoginForm() {
                             <button
                                 onClick={handlePhoneSubmit}
                                 disabled={loading || !phoneNumber}
-                                className="w-full py-3 px-4 bg-emerald-600 hover:bg-emerald-700 
-                           disabled:bg-emerald-600/40 disabled:cursor-not-allowed disabled:opacity-60
-                           text-white font-medium rounded-lg 
-                           transition-all focus:outline-none focus:ring-2 focus:ring-emerald-500 
+                                className="w-full py-3 px-4 bg-voxpop-gold hover:bg-voxpop-gold-dark 
+                           disabled:bg-zinc-200 dark:disabled:bg-zinc-800 disabled:cursor-not-allowed
+                           text-voxpop-brown disabled:text-zinc-400 dark:disabled:text-zinc-500 font-medium rounded-lg 
+                           transition-all focus:outline-none focus:ring-2 focus:ring-voxpop-gold 
                            focus:ring-offset-2 dark:focus:ring-offset-zinc-900"
                             >
                                 {loading ? t("login.sending") : t("login.continue")}
@@ -158,10 +158,10 @@ function LoginForm() {
                             <button
                                 onClick={handleCodeSubmit}
                                 disabled={loading || code.length !== 6}
-                                className="w-full py-3 px-4 bg-emerald-600 hover:bg-emerald-700 
-                           disabled:bg-emerald-600/40 disabled:cursor-not-allowed disabled:opacity-60
-                           text-white font-medium rounded-lg 
-                           transition-all focus:outline-none focus:ring-2 focus:ring-emerald-500 
+                                className="w-full py-3 px-4 bg-voxpop-gold hover:bg-voxpop-gold-dark 
+                           disabled:bg-zinc-200 dark:disabled:bg-zinc-800 disabled:cursor-not-allowed
+                           text-voxpop-brown disabled:text-zinc-400 dark:disabled:text-zinc-500 font-medium rounded-lg 
+                           transition-all focus:outline-none focus:ring-2 focus:ring-voxpop-gold 
                            focus:ring-offset-2 dark:focus:ring-offset-zinc-900"
                             >
                                 {loading ? t("login.verifying") : t("login.verify")}
@@ -171,8 +171,8 @@ function LoginForm() {
                                 <button
                                     onClick={handleResendCode}
                                     disabled={loading || resendTimer > 0}
-                                    className="w-full py-2 text-sm font-medium text-emerald-600 hover:text-emerald-500 
-                                disabled:text-zinc-400 disabled:cursor-not-allowed dark:text-emerald-400 dark:disabled:text-zinc-600
+                                    className="w-full py-2 text-sm font-medium text-voxpop-gold hover:text-voxpop-gold-dark 
+                                disabled:text-zinc-400 disabled:cursor-not-allowed dark:text-voxpop-gold dark:disabled:text-zinc-600
                                 transition-colors"
                                 >
                                     {resendTimer > 0

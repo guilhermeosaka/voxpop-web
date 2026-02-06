@@ -47,8 +47,8 @@ export function LanguageSwitcher() {
                 onClick={() => setIsOpen(!isOpen)}
                 className="flex items-center gap-2 px-3 py-2 border border-zinc-200 dark:border-zinc-700 
                  rounded-lg bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100
-                 hover:border-emerald-500 dark:hover:border-emerald-500
-                 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500
+                 hover:border-voxpop-gold dark:hover:border-voxpop-gold
+                 focus:outline-none focus:ring-2 focus:ring-voxpop-gold/20 focus:border-voxpop-gold
                  transition-all duration-200"
                 aria-label="Select language"
             >
@@ -84,9 +84,9 @@ export function LanguageSwitcher() {
                                 type="button"
                                 onClick={() => handleLanguageChange(language.code)}
                                 className={`w-full flex items-center gap-3 px-4 py-2.5 text-left
-                          hover:bg-emerald-50 dark:hover:bg-emerald-950/30
+                          hover:bg-voxpop-gold-light dark:hover:bg-voxpop-gold/10
                           transition-colors
-                          ${isSelected ? "bg-emerald-50 dark:bg-emerald-950/30" : ""}`}
+                          ${isSelected ? "bg-voxpop-gold-light dark:bg-voxpop-gold/10" : ""}`}
                             >
                                 <div className="relative w-5 h-4 rounded-sm overflow-hidden flex-shrink-0">
                                     <Image
@@ -101,7 +101,7 @@ export function LanguageSwitcher() {
                                     {language.name}
                                 </span>
                                 {isSelected && (
-                                    <svg className="w-5 h-5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <svg className="w-5 h-5 text-voxpop-gold" fill="currentColor" viewBox="0 0 20 20">
                                         <path
                                             fillRule="evenodd"
                                             d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"

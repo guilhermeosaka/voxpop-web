@@ -95,7 +95,7 @@ export function PhoneNumberInput({
           placeholder={t("login.phonePlaceholder")}
           className="flex-1 px-4 py-2 border border-zinc-200 dark:border-zinc-700 rounded-lg
                              bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100
-                             focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500
+                             focus:outline-none focus:ring-2 focus:ring-voxpop-gold/20 focus:border-voxpop-gold
                              disabled:opacity-50 disabled:cursor-not-allowed
                              placeholder-zinc-400 dark:placeholder-zinc-500
                              transition-all"

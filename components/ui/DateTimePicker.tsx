@@ -181,7 +181,7 @@ export function DateTimePicker({ value, onChange, disabled = false, label, optio
                 type="button"
                 onClick={() => !disabled && setIsOpen(!isOpen)}
                 disabled={disabled}
-                className="w-full px-4 py-3 border-2 border-zinc-200 dark:border-zinc-700 rounded-xl bg-white dark:bg-zinc-900 text-left text-zinc-900 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-500 transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-between"
+                className="w-full px-4 py-3 border-2 border-zinc-200 dark:border-zinc-700 rounded-xl bg-white dark:bg-zinc-900 text-left text-zinc-900 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-voxpop-gold/40 focus:border-voxpop-gold transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-between"
             >
                 <span className={!selectedDate ? "text-zinc-400 dark:text-zinc-600" : ""}>
                     {selectedDate ? `${formatDisplayDate(selectedDate)} ${formatDisplayTime(selectedTime)}` : "Selecione data e hora"}
@@ -260,9 +260,9 @@ export function DateTimePicker({ value, onChange, disabled = false, label, optio
                                     className={`aspect-square p-2 text-sm rounded-lg transition-all cursor-pointer ${!day
                                         ? "invisible"
                                         : selectedDate && day.toDateString() === selectedDate.toDateString()
-                                            ? "bg-emerald-500 text-white font-semibold"
+                                            ? "bg-voxpop-gold text-voxpop-brown font-semibold"
                                             : day.toDateString() === new Date().toDateString()
-                                                ? "bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 font-medium"
+                                                ? "bg-voxpop-gold-light dark:bg-voxpop-gold/10 text-voxpop-brown dark:text-voxpop-gold font-medium"
                                                 : "hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-900 dark:text-zinc-100"
                                         }`}
                                 >
@@ -281,7 +281,7 @@ export function DateTimePicker({ value, onChange, disabled = false, label, optio
                             type="time"
                             value={selectedTime}
                             onChange={(e) => handleTimeChange(e.target.value)}
-                            className="w-full px-3 py-2 border-2 border-zinc-200 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-500 transition-all [&::-webkit-calendar-picker-indicator]:cursor-pointer [&::-webkit-calendar-picker-indicator]:opacity-70 [&::-webkit-calendar-picker-indicator]:hover:opacity-100 [&::-webkit-calendar-picker-indicator]:dark:invert"
+                            className="w-full px-3 py-2 border-2 border-zinc-200 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-voxpop-gold/40 focus:border-voxpop-gold transition-all [&::-webkit-calendar-picker-indicator]:cursor-pointer [&::-webkit-calendar-picker-indicator]:opacity-70 [&::-webkit-calendar-picker-indicator]:hover:opacity-100 [&::-webkit-calendar-picker-indicator]:dark:invert"
                         />
                     </div>
 
@@ -297,7 +297,7 @@ export function DateTimePicker({ value, onChange, disabled = false, label, optio
                         <button
                             type="button"
                             onClick={() => setIsOpen(false)}
-                            className="flex-1 px-3 py-2 text-sm font-medium text-white bg-emerald-600 hover:bg-emerald-700 rounded-lg transition-colors cursor-pointer"
+                            className="flex-1 px-3 py-2 text-sm font-medium text-voxpop-brown bg-voxpop-gold hover:bg-voxpop-gold-dark rounded-lg transition-colors cursor-pointer"
                         >
                             Confirmar
                         </button>

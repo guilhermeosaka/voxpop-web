@@ -44,7 +44,7 @@ export function Navbar() {
                         {isAuthenticated && (
                             <Link
                                 href="/create"
-                                className="flex items-center gap-1.5 rounded-lg bg-emerald-600 px-3 py-1.5 text-sm font-medium text-white shadow-sm transition-all hover:bg-emerald-700 hover:shadow active:scale-95"
+                                className="flex items-center gap-1.5 rounded-lg bg-voxpop-gold px-3 py-1.5 text-sm font-medium text-voxpop-brown transition-colors hover:bg-voxpop-gold-dark"
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -69,7 +69,7 @@ export function Navbar() {
                         ) : (
                             <Link
                                 href="/login"
-                                className="rounded-lg border border-emerald-600 px-3 py-1.5 text-sm font-medium text-emerald-600 transition-all hover:bg-emerald-50 dark:border-emerald-500 dark:text-emerald-500 dark:hover:bg-emerald-950/30"
+                                className="rounded-lg border border-voxpop-gold px-3 py-1.5 text-sm font-medium text-voxpop-brown transition-colors hover:bg-voxpop-gold-light dark:border-voxpop-gold dark:text-voxpop-gold dark:hover:bg-voxpop-gold/20"
                             >
                                 {t("home.login")}
                             </Link>

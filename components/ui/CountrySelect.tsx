@@ -75,8 +75,8 @@ export function CountrySelect({ value, onChange, disabled = false }: CountrySele
                 disabled={disabled}
                 className="flex items-center gap-2 px-3 py-2 border border-zinc-200 dark:border-zinc-700 
                          rounded-lg bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100
-                         hover:border-emerald-500 dark:hover:border-emerald-500
-                         focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500
+                         hover:border-voxpop-gold dark:hover:border-voxpop-gold
+                         focus:outline-none focus:ring-2 focus:ring-voxpop-gold/20 focus:border-voxpop-gold
                          disabled:opacity-50 disabled:cursor-not-allowed
                          transition-all duration-200 min-w-[120px]"
             >
@@ -115,7 +115,7 @@ export function CountrySelect({ value, onChange, disabled = false }: CountrySele
                             placeholder="Search countries..."
                             className="w-full px-3 py-2 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 
                                      dark:border-zinc-700 rounded-md text-sm
-                                     focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500
+                                     focus:outline-none focus:ring-2 focus:ring-voxpop-gold/20 focus:border-voxpop-gold
                                      text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500
                                      transition-all"
                         />
@@ -135,9 +135,9 @@ export function CountrySelect({ value, onChange, disabled = false }: CountrySele
                                         type="button"
                                         onClick={() => handleSelect(country)}
                                         className={`w-full flex items-center gap-3 px-4 py-2.5 text-left
-                                                  hover:bg-emerald-50 dark:hover:bg-emerald-950/30
+                                                  hover:bg-voxpop-gold-light dark:hover:bg-voxpop-gold/10
                                                   transition-colors
-                                                  ${isSelected ? "bg-emerald-50 dark:bg-emerald-950/30" : ""}`}
+                                                  ${isSelected ? "bg-voxpop-gold-light dark:bg-voxpop-gold/10" : ""}`}
                                     >
                                         <div className="relative w-6 h-4 rounded-sm overflow-hidden flex-shrink-0">
                                             <Image
@@ -158,7 +158,7 @@ export function CountrySelect({ value, onChange, disabled = false }: CountrySele
                                         </span>
                                         {isSelected && (
                                             <svg
-                                                className="w-5 h-5 text-emerald-500"
+                                                className="w-5 h-5 text-voxpop-gold"
                                                 fill="currentColor"
                                                 viewBox="0 0 20 20"
                                             >

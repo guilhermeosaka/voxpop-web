@@ -99,7 +99,7 @@ export function PollCard({ poll, isAuthenticated = false }: PollCardProps) {
         <div
             className={`group relative flex flex-col overflow-hidden rounded-2xl bg-white p-6 shadow-sm ring-1 transition-all duration-300 hover:shadow-md dark:bg-zinc-900 
             ${poll.hasCreated
-                    ? "ring-emerald-500/50 hover:ring-emerald-500 dark:ring-emerald-500/50 dark:hover:ring-emerald-500"
+                    ? "ring-voxpop-gold/50 hover:ring-voxpop-gold dark:ring-voxpop-gold/50 dark:hover:ring-voxpop-gold"
                     : "ring-zinc-200 hover:ring-zinc-300 dark:ring-zinc-800 dark:hover:ring-zinc-700"
                 }`}
         >
@@ -109,14 +109,14 @@ export function PollCard({ poll, isAuthenticated = false }: PollCardProps) {
                 <div className="flex items-start justify-between">
                     <div className="flex flex-wrap gap-2">
                         {poll.hasCreated && (
-                            <span className="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-emerald-100 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400">
+                            <span className="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-voxpop-gold-light text-voxpop-brown dark:bg-voxpop-gold/10 dark:text-voxpop-gold">
                                 {t("poll.createdByYou")}
                             </span>
                         )}
                         <span
                             className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium transition-colors ${isExpired
                                 ? "bg-zinc-100 text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400"
-                                : "bg-emerald-100 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400"
+                                : "bg-voxpop-gold-light text-voxpop-brown dark:bg-voxpop-gold/10 dark:text-voxpop-gold"
                                 }`}
                         >
                             {isExpired ? t("poll.status.closed") : t("poll.status.active")}
@@ -151,7 +151,7 @@ export function PollCard({ poll, isAuthenticated = false }: PollCardProps) {
                             disabled={!isAuthenticated || isExpired || isLoading}
                             className={`relative flex w-full items-center justify-between rounded-lg border px-4 py-3 text-left text-sm font-medium transition-all overflow-hidden
               ${isSelected
-                                    ? "border-emerald-500 bg-emerald-50 text-emerald-900 dark:bg-emerald-500/10 dark:text-emerald-400 ring-1 ring-emerald-500"
+                                    ? "border-voxpop-gold bg-voxpop-gold-light text-voxpop-brown dark:bg-voxpop-gold/10 dark:text-voxpop-gold ring-1 ring-voxpop-gold"
                                     : "border-zinc-200 bg-transparent text-zinc-700 hover:bg-zinc-50 dark:border-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-800/50"
                                 }
               ${!isAuthenticated || isExpired
@@ -164,7 +164,7 @@ export function PollCard({ poll, isAuthenticated = false }: PollCardProps) {
                         >
                             {/* Progress bar background */}
                             <div
-                                className="absolute inset-0 bg-emerald-100/50 dark:bg-emerald-500/5 transition-all duration-500"
+                                className="absolute inset-0 bg-voxpop-gold-light/50 dark:bg-voxpop-gold/5 transition-all duration-500"
                                 style={{ width: `${percentage}%` }}
                             />
 
@@ -178,13 +178,13 @@ export function PollCard({ poll, isAuthenticated = false }: PollCardProps) {
                                         <span>{percentage.toFixed(1)}%</span>
                                     </div>
                                     {isLoading ? (
-                                        <div className="h-5 w-5 animate-spin rounded-full border-2 border-emerald-600 border-t-transparent dark:border-emerald-500" />
+                                        <div className="h-5 w-5 animate-spin rounded-full border-2 border-voxpop-gold border-t-transparent dark:border-voxpop-gold" />
                                     ) : isSelected && (
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 20 20"
                                             fill="currentColor"
-                                            className="h-5 w-5 text-emerald-600 dark:text-emerald-500"
+                                            className="h-5 w-5 text-voxpop-gold dark:text-voxpop-gold"
                                         >
                                             <path
                                                 fillRule="evenodd"

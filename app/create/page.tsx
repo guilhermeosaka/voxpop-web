@@ -114,11 +114,11 @@ export default function CreatePollPage() {
             <main className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
                 <div className="bg-white dark:bg-zinc-900 rounded-2xl shadow-xl ring-1 ring-zinc-200 dark:ring-zinc-800 overflow-hidden">
                     {/* Header */}
-                    <div className="bg-gradient-to-r from-emerald-500 to-emerald-600 px-8 py-6">
-                        <h1 className="text-2xl font-bold text-white">
+                    <div className="bg-white dark:bg-zinc-900 px-8 py-6 border-b border-zinc-200 dark:border-zinc-800">
+                        <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
                             {t("poll.create.title")}
                         </h1>
-                        <p className="mt-1 text-sm text-emerald-50">
+                        <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
                             {t("poll.create.questionPlaceholder")}
                         </p>
                     </div>
@@ -135,7 +135,7 @@ export default function CreatePollPage() {
                                 value={question}
                                 onChange={(e) => setQuestion(e.target.value)}
                                 placeholder={t("poll.create.questionPlaceholder")}
-                                className="w-full px-4 py-3 border-2 border-zinc-200 dark:border-zinc-700 rounded-xl bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-500 transition-all"
+                                className="w-full px-4 py-3 border-2 border-zinc-200 dark:border-zinc-700 rounded-xl bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-voxpop-gold/40 focus:border-voxpop-gold transition-all"
                                 disabled={loading}
                             />
                         </div>
@@ -161,12 +161,12 @@ export default function CreatePollPage() {
                                         onClick={() => setVoteMode(VoteMode.SingleChoice)}
                                         disabled={loading}
                                         className={`relative px-4 py-3 rounded-xl border-2 font-medium text-sm transition-all cursor-pointer ${voteMode === VoteMode.SingleChoice
-                                            ? "border-emerald-500 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400"
+                                            ? "border-voxpop-gold bg-voxpop-gold-light dark:bg-voxpop-gold/10 text-voxpop-brown dark:text-voxpop-gold"
                                             : "border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 hover:border-zinc-300 dark:hover:border-zinc-600"
                                             }`}
                                     >
                                         {voteMode === VoteMode.SingleChoice && (
-                                            <div className="absolute top-2 right-2 w-2 h-2 rounded-full bg-emerald-500"></div>
+                                            <div className="absolute top-2 right-2 w-2 h-2 rounded-full bg-voxpop-gold"></div>
                                         )}
                                         {t("poll.create.singleChoice")}
                                     </button>
@@ -175,12 +175,12 @@ export default function CreatePollPage() {
                                         onClick={() => setVoteMode(VoteMode.MultipleChoice)}
                                         disabled={loading}
                                         className={`relative px-4 py-3 rounded-xl border-2 font-medium text-sm transition-all cursor-pointer ${voteMode === VoteMode.MultipleChoice
-                                            ? "border-emerald-500 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400"
+                                            ? "border-voxpop-gold bg-voxpop-gold-light dark:bg-voxpop-gold/10 text-voxpop-brown dark:text-voxpop-gold"
                                             : "border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 hover:border-zinc-300 dark:hover:border-zinc-600"
                                             }`}
                                     >
                                         {voteMode === VoteMode.MultipleChoice && (
-                                            <div className="absolute top-2 right-2 w-2 h-2 rounded-full bg-emerald-500"></div>
+                                            <div className="absolute top-2 right-2 w-2 h-2 rounded-full bg-voxpop-gold"></div>
                                         )}
                                         {t("poll.create.multipleChoice")}
                                     </button>
@@ -206,7 +206,7 @@ export default function CreatePollPage() {
                                             value={option}
                                             onChange={(e) => updateOption(index, e.target.value)}
                                             placeholder={t("poll.create.optionPlaceholder", { number: index + 1 })}
-                                            className="flex-1 px-4 py-3 border-2 border-zinc-200 dark:border-zinc-700 rounded-xl bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-500 transition-all"
+                                            className="flex-1 px-4 py-3 border-2 border-zinc-200 dark:border-zinc-700 rounded-xl bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-voxpop-gold/40 focus:border-voxpop-gold transition-all"
                                             disabled={loading}
                                         />
                                         {options.length > 2 && (
@@ -236,7 +236,7 @@ export default function CreatePollPage() {
                             <button
                                 type="button"
                                 onClick={addOption}
-                                className="mt-4 flex items-center gap-2 px-4 py-2 text-sm font-medium text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300 hover:bg-emerald-50 dark:hover:bg-emerald-950/30 rounded-lg transition-colors cursor-pointer"
+                                className="mt-4 flex items-center gap-2 px-4 py-2 text-sm font-medium text-voxpop-gold hover:text-voxpop-gold-dark dark:text-voxpop-gold dark:hover:text-voxpop-gold-dark hover:bg-voxpop-gold-light dark:hover:bg-voxpop-gold/10 rounded-lg transition-colors cursor-pointer"
                                 disabled={loading}
                             >
                                 <svg
@@ -275,7 +275,7 @@ export default function CreatePollPage() {
                             <button
                                 type="submit"
                                 disabled={loading}
-                                className="flex-1 py-3.5 px-6 bg-emerald-600 hover:bg-emerald-700 disabled:bg-emerald-400 disabled:cursor-not-allowed text-white font-semibold rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 dark:focus:ring-offset-zinc-900"
+                                className="flex-1 py-3.5 px-6 bg-voxpop-gold hover:bg-voxpop-gold-dark disabled:bg-zinc-200 dark:disabled:bg-zinc-800 disabled:cursor-not-allowed text-voxpop-brown disabled:text-zinc-400 dark:disabled:text-zinc-500 font-semibold rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-voxpop-gold focus:ring-offset-2 dark:focus:ring-offset-zinc-900"
                             >
                                 {loading ? (
                                     <span className="flex items-center justify-center gap-2">
