@@ -2,8 +2,8 @@
 
 import { useAuth } from "@/lib/auth";
 import { useTranslation } from "react-i18next";
-import { LanguageSwitcher } from "./LanguageSwitcher";
 import Link from "next/link";
+import {LanguageSwitcher} from "@/components/features/i18n/LanguageSwitcher";
 
 export function Navbar() {
     const { isAuthenticated, logout } = useAuth();
@@ -27,10 +27,10 @@ export function Navbar() {
                         </div>
                         <div className="flex items-baseline gap-1.5">
                             <span className="text-base font-bold text-zinc-900 dark:text-zinc-50">
-                                VoxPop
+                                Voxpop
                             </span>
                             <span className="hidden text-sm text-zinc-500 dark:text-zinc-400 sm:inline">
-                                - Veja o que o mundo pensa
+                                {t("home.subtitle")}
                             </span>
                         </div>
                     </Link>

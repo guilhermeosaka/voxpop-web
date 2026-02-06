@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/lib/auth";
-import { I18nProvider } from "@/components/I18nProvider";
+import {I18nProvider} from "@/components/features/i18n/I18nProvider";
+import React from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "VoxPop - Voice of the People",
+  title: "Voxpop - Voice of the People",
   description: "Cast your vote and see what the world thinks",
 };
 

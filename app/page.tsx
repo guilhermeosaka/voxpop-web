@@ -1,12 +1,11 @@
 "use client";
 
-import { fetchPolls } from "@/lib/api";
-import { PollCard } from "@/components/PollCard";
-import { Navbar } from "@/components/Navbar";
-import { useAuth } from "@/lib/auth";
-import { useEffect, useState } from "react";
-import { Poll } from "@/lib/api";
-import { useTranslation } from "react-i18next";
+import {fetchPolls, Poll} from "@/lib/api";
+import {useAuth} from "@/lib/auth";
+import {useEffect, useState} from "react";
+import {useTranslation} from "react-i18next";
+import {PollCard} from "@/components/features/poll/PollCard";
+import {Navbar} from "@/components/layout/Navbar";
 
 export default function Home() {
   const { isAuthenticated, accessToken } = useAuth();
