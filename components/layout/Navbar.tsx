@@ -4,14 +4,14 @@ import { useAuth } from "@/lib/auth";
 import { useTranslation } from "react-i18next";
 import Link from "next/link";
 import Image from "next/image";
-import {LanguageSwitcher} from "@/components/features/i18n/LanguageSwitcher";
+import { LanguageSwitcher } from "@/components/features/i18n/LanguageSwitcher";
 
 export function Navbar() {
     const { isAuthenticated, logout } = useAuth();
     const { t } = useTranslation();
 
     return (
-        <nav className="sticky top-0 z-50 border-b border-zinc-200 bg-white/80 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-900/80">
+        <nav className="sticky top-0 z-[100] border-b border-zinc-200 bg-white/80 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-900/80">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex h-14 items-center justify-between gap-4">
                     {/* Logo and Tagline */}

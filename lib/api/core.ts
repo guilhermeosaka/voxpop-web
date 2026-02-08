@@ -29,20 +29,49 @@ export interface PollsResponse {
   items: Poll[];
 }
 
-export async function fetchPolls(token?: string): Promise<Poll[]> {
+export enum PollSortBy {
+  CreatedAtDesc = 1,
+  CreatedAtAsc = 2,
+  TotalVotesDesc = 3,
+  TotalVotesAsc = 4,
+  ExpiresAtAsc = 5,
+  ExpiresAtDesc = 6
+}
+
+export interface GetPollsParams {
+  page?: number;
+  pageSize?: number;
+  sortBy?: PollSortBy;
+  createdByMe?: boolean;
+  votedByMe?: boolean;
+  status?: number; // PollStatus enum
+  voteMode?: VoteMode;
+}
+
+export async function fetchPolls(token?: string, params: GetPollsParams = {}): Promise<Poll[]> {
   try {
+    const queryParams = new URLSearchParams();
+    if (params.page) queryParams.append("page", params.page.toString());
+    if (params.pageSize) queryParams.append("pageSize", params.pageSize.toString());
+    if (params.sortBy) queryParams.append("sortBy", params.sortBy.toString());
+    if (params.createdByMe) queryParams.append("createdByMe", "true");
+    if (params.votedByMe) queryParams.append("votedByMe", "true");
+    if (params.status) queryParams.append("status", params.status.toString());
+    if (params.voteMode) queryParams.append("voteMode", params.voteMode.toString());
+
+    const queryString = queryParams.toString() ? `?${queryParams.toString()}` : "";
     let res: Response;
 
     if (token) {
       // Use authenticated fetch with auto-refresh
-      res = await authenticatedFetch(`${CORE_API_URL}/polls`, {
+      res = await authenticatedFetch(`${CORE_API_URL}/polls${queryString}`, {
         method: "GET",
         cache: "no-store",
         token,
       });
     } else {
       // Anonymous fetch
-      res = await fetch(`${CORE_API_URL}/polls`, {
+      res = await fetch(`${CORE_API_URL}/polls${queryString}`, {
         cache: "no-store",
       });
     }
@@ -164,21 +193,6 @@ async function authenticatedFetch(
 
 // Authentication API
 const AUTH_API_BASE = IDENTITY_API_URL;
-
-export interface CreateUserRequest {
-  phoneNumber: string;
-}
-
-export interface GenerateCodeRequest {
-  target: string;
-  channel: number; // 1 for SMS
-}
-
-export interface GenerateTokensRequest {
-  target: string;
-  channel: number;
-  code: string;
-}
 
 export interface TokensResponse {
   accessToken: string;

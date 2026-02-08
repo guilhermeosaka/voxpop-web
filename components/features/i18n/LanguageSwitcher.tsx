@@ -35,8 +35,8 @@ export function LanguageSwitcher() {
         };
     }, [isOpen]);
 
-    const handleLanguageChange = (languageCode: string) => {
-        i18n.changeLanguage(languageCode);
+    const handleLanguageChange = async (languageCode: string) => {
+        await i18n.changeLanguage(languageCode);
         setIsOpen(false);
     };
 
@@ -88,7 +88,7 @@ export function LanguageSwitcher() {
                           transition-colors
                           ${isSelected ? "bg-voxpop-gold-light dark:bg-voxpop-gold/10" : ""}`}
                             >
-                                <div className="relative w-5 h-4 rounded-sm overflow-hidden flex-shrink-0">
+                                <div className="relative w-5 h-4 rounded-sm overflow-hidden shrink-0">
                                     <Image
                                         src={`https://flagcdn.com/w40/${language.flag}.png`}
                                         alt={`${language.name} flag`}
