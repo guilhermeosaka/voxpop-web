@@ -1,6 +1,6 @@
 {
     "common": {
-        "appName": "VoxPop",
+        "appName": "Voxpop",
         "language": "Language",
         "loading": "Loading...",
         "error": "Error",
@@ -47,6 +47,11 @@
         "noPolls": {
             "title": "No polls yet",
             "description": "Check back later for new polls."
+        },
+        "filters": {
+            "all": "All Polls",
+            "myPolls": "My Polls",
+            "myVotes": "My Votes"
         }
     },
     "poll": {
@@ -60,7 +65,7 @@
         },
         "createdByYou": "Created by you",
         "create": {
-            "title": "Create New Poll",
+            "title": "Create Poll",
             "question": "Question",
             "questionPlaceholder": "What do you want to ask?",
             "expiresAt": "Expires At",
@@ -82,5 +87,11 @@
             }
         },
         "loginToVote": "Log in to vote"
+    },
+    "sort": {
+        "newest": "Newest",
+        "oldest": "Oldest",
+        "popular": "Popular",
+        "expiring": "Expiring"
     }
 }

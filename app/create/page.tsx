@@ -6,8 +6,8 @@ import { useTranslation } from "react-i18next";
 import { useAuth } from "@/lib/auth";
 import { createPoll, VoteMode } from "@/lib/api";
 import Link from "next/link";
-import {Navbar} from "@/components/layout/Navbar";
-import {DateTimePicker} from "@/components/ui/DateTimePicker";
+import { Navbar } from "@/components/layout/Navbar";
+import { DateTimePicker } from "@/components/ui/DateTimePicker";
 
 export default function CreatePollPage() {
     const router = useRouter();
@@ -118,9 +118,6 @@ export default function CreatePollPage() {
                         <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
                             {t("poll.create.title")}
                         </h1>
-                        <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
-                            {t("poll.create.questionPlaceholder")}
-                        </p>
                     </div>
 
                     {/* Form */}
@@ -196,7 +193,7 @@ export default function CreatePollPage() {
                             <div className="space-y-3">
                                 {options.map((option, index) => (
                                     <div key={index} className="flex gap-3">
-                                        <div className="flex-shrink-0 w-8 h-12 flex items-center justify-center">
+                                        <div className="shrink-0 w-8 h-12 flex items-center justify-center">
                                             <span className="text-sm font-semibold text-zinc-400 dark:text-zinc-600">
                                                 {index + 1}
                                             </span>
@@ -213,7 +210,7 @@ export default function CreatePollPage() {
                                             <button
                                                 type="button"
                                                 onClick={() => removeOption(index)}
-                                                className="flex-shrink-0 w-12 h-12 flex items-center justify-center text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-xl transition-colors"
+                                                className="shrink-0 w-12 h-12 flex items-center justify-center text-zinc-400 hover:text-red-600 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-xl transition-colors"
                                                 disabled={loading}
                                             >
                                                 <svg
@@ -258,7 +255,7 @@ export default function CreatePollPage() {
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 20 20"
                                     fill="currentColor"
-                                    className="w-5 h-5 text-red-600 dark:text-red-400 flex-shrink-0 mt-0.5"
+                                    className="w-5 h-5 text-red-600 dark:text-red-400 shrink-0 mt-0.5"
                                 >
                                     <path
                                         fillRule="evenodd"

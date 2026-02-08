@@ -87,11 +87,13 @@ export function CodeInput({ value, onChange, onSubmit, disabled = false, error }
                         onKeyDown={(e) => handleKeyDown(index, e)}
                         onPaste={handlePaste}
                         disabled={disabled}
-                        className="w-12 h-14 text-center text-2xl font-semibold border border-zinc-200 rounded-lg 
-                     focus:outline-none focus:ring-2 focus:ring-voxpop-gold focus:border-voxpop-gold
+                        className="w-12 h-14 text-center text-2xl font-semibold 
+                     border border-zinc-200/60 dark:border-zinc-800/60 rounded-xl 
+                     bg-white/60 dark:bg-zinc-900/60 text-zinc-900 dark:text-zinc-100
+                     backdrop-blur-md shadow-sm
+                     focus:outline-none focus:ring-2 focus:ring-voxpop-gold/20 focus:border-voxpop-gold
                      disabled:opacity-50 disabled:cursor-not-allowed
-                     dark:bg-zinc-900 dark:border-zinc-800 dark:text-zinc-100
-                     transition-all"
+                     transition-all duration-200"
                     />
                 ))}
             </div>

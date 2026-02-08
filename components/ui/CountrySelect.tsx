@@ -73,15 +73,16 @@ export function CountrySelect({ value, onChange, disabled = false }: CountrySele
                 type="button"
                 onClick={() => !disabled && setIsOpen(!isOpen)}
                 disabled={disabled}
-                className="flex items-center gap-2 px-3 py-2 border border-zinc-200 dark:border-zinc-700 
-                         rounded-lg bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100
-                         hover:border-voxpop-gold dark:hover:border-voxpop-gold
+                className="flex items-center gap-2 px-3 h-[46px] border border-zinc-200/60 dark:border-zinc-800/60 
+                         rounded-xl bg-white/60 dark:bg-zinc-900/60 text-zinc-900 dark:text-zinc-100
+                         backdrop-blur-md shadow-sm
+                         hover:border-zinc-300 dark:hover:border-zinc-700 hover:bg-white/80 dark:hover:bg-zinc-800/80
                          focus:outline-none focus:ring-2 focus:ring-voxpop-gold/20 focus:border-voxpop-gold
                          disabled:opacity-50 disabled:cursor-not-allowed
                          transition-all duration-200 min-w-[120px]"
             >
                 {value && (
-                    <div className="relative w-6 h-4 rounded-sm overflow-hidden">
+                    <div className="relative w-6 h-4 rounded-sm overflow-hidden shadow-sm">
                         <Image
                             src={`https://flagcdn.com/w40/${value.toLowerCase()}.png`}
                             alt={`${value} flag`}
@@ -91,30 +92,32 @@ export function CountrySelect({ value, onChange, disabled = false }: CountrySele
                         />
                     </div>
                 )}
-                <span className="text-sm font-medium">{selectedCallingCode}</span>
+                <span className="text-sm font-medium tracking-tight">{selectedCallingCode}</span>
                 <svg
-                    className={`w-4 h-4 ml-auto transition-transform ${isOpen ? "rotate-180" : ""}`}
+                    className={`w-3.5 h-3.5 ml-auto text-zinc-400 transition-transform duration-200 ${isOpen ? "rotate-180 text-zinc-600 dark:text-zinc-300" : ""}`}
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
+                    strokeWidth={2.5}
                 >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                 </svg>
             </button>
 
             {isOpen && (
-                <div className="absolute z-50 mt-2 w-80 bg-white dark:bg-zinc-900 border border-zinc-200 
-                              dark:border-zinc-700 rounded-lg shadow-lg overflow-hidden">
+                <div className="absolute z-50 mt-2 w-80 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-xl border border-zinc-200/50 
+                              dark:border-zinc-800/50 rounded-2xl shadow-xl overflow-hidden ring-1 ring-black/5 dark:ring-white/5
+                              animate-in fade-in zoom-in-95 duration-200">
                     {/* Search Input */}
-                    <div className="p-3 border-b border-zinc-200 dark:border-zinc-700">
+                    <div className="p-3 border-b border-zinc-200/50 dark:border-zinc-800/50">
                         <input
                             ref={searchInputRef}
                             type="text"
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
                             placeholder="Search countries..."
-                            className="w-full px-3 py-2 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 
-                                     dark:border-zinc-700 rounded-md text-sm
+                            className="w-full px-3 py-2 bg-zinc-50/50 dark:bg-zinc-800/50 border border-zinc-200/50 
+                                     dark:border-zinc-700/50 rounded-lg text-sm
                                      focus:outline-none focus:ring-2 focus:ring-voxpop-gold/20 focus:border-voxpop-gold
                                      text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500
                                      transition-all"
@@ -122,7 +125,7 @@ export function CountrySelect({ value, onChange, disabled = false }: CountrySele
                     </div>
 
                     {/* Country List */}
-                    <div className="max-h-64 overflow-y-auto">
+                    <div className="max-h-64 overflow-y-auto p-1.5 scrollbar-thin scrollbar-thumb-zinc-200 dark:scrollbar-thumb-zinc-800">
                         {filteredCountries.length > 0 ? (
                             filteredCountries.map((country) => {
                                 const countryName = en[country as keyof typeof en] || country;
@@ -134,10 +137,11 @@ export function CountrySelect({ value, onChange, disabled = false }: CountrySele
                                         key={country}
                                         type="button"
                                         onClick={() => handleSelect(country)}
-                                        className={`w-full flex items-center gap-3 px-4 py-2.5 text-left
-                                                  hover:bg-voxpop-gold-light dark:hover:bg-voxpop-gold/10
-                                                  transition-colors
-                                                  ${isSelected ? "bg-voxpop-gold-light dark:bg-voxpop-gold/10" : ""}`}
+                                        className={`w-full flex items-center gap-3 px-3 py-2 text-left rounded-lg
+                                                  transition-colors duration-200 group
+                                                  ${isSelected
+                                                ? "bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100"
+                                                : "text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 hover:text-zinc-900 dark:hover:text-zinc-200"}`}
                                     >
                                         <div className="relative w-6 h-4 rounded-sm overflow-hidden flex-shrink-0">
                                             <Image

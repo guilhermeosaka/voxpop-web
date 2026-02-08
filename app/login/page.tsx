@@ -6,8 +6,8 @@ import { useTranslation } from "react-i18next";
 import { generateCode, generateTokens } from "@/lib/api";
 import { useAuth } from "@/lib/auth";
 import { isValidPhoneNumber } from "react-phone-number-input";
-import {PhoneNumberInput} from "@/components/ui/PhoneNumberInput";
-import {CodeInput} from "@/components/ui/CodeInput";
+import { PhoneNumberInput } from "@/components/ui/PhoneNumberInput";
+import { CodeInput } from "@/components/ui/CodeInput";
 
 function LoginForm() {
     const router = useRouter();
@@ -110,7 +110,7 @@ function LoginForm() {
 
     return (
         <div className="w-full max-w-md">
-            <div className="bg-white dark:bg-zinc-900 rounded-2xl shadow-lg ring-1 ring-zinc-200 dark:ring-zinc-800 p-8">
+            <div className="bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl rounded-3xl shadow-2xl ring-1 ring-zinc-200/50 dark:ring-zinc-800/50 p-8 sm:p-10">
                 {/* Header */}
                 <div className="text-center mb-8">
                     <h1 className="text-3xl font-bold text-zinc-900 dark:text-zinc-50">
@@ -139,9 +139,9 @@ function LoginForm() {
                                 disabled={loading || !phoneNumber}
                                 className="w-full py-3 px-4 bg-voxpop-gold hover:bg-voxpop-gold-dark 
                            disabled:bg-zinc-200 dark:disabled:bg-zinc-800 disabled:cursor-not-allowed
-                           text-voxpop-brown disabled:text-zinc-400 dark:disabled:text-zinc-500 font-medium rounded-lg 
+                           text-voxpop-brown disabled:text-zinc-400 dark:disabled:text-zinc-500 font-bold rounded-xl shadow-sm
                            transition-all focus:outline-none focus:ring-2 focus:ring-voxpop-gold 
-                           focus:ring-offset-2 dark:focus:ring-offset-zinc-900"
+                           focus:ring-offset-2 dark:focus:ring-offset-zinc-900 transform active:scale-[0.98] duration-200"
                             >
                                 {loading ? t("login.sending") : t("login.continue")}
                             </button>
@@ -160,9 +160,9 @@ function LoginForm() {
                                 disabled={loading || code.length !== 6}
                                 className="w-full py-3 px-4 bg-voxpop-gold hover:bg-voxpop-gold-dark 
                            disabled:bg-zinc-200 dark:disabled:bg-zinc-800 disabled:cursor-not-allowed
-                           text-voxpop-brown disabled:text-zinc-400 dark:disabled:text-zinc-500 font-medium rounded-lg 
+                           text-voxpop-brown disabled:text-zinc-400 dark:disabled:text-zinc-500 font-bold rounded-xl shadow-sm
                            transition-all focus:outline-none focus:ring-2 focus:ring-voxpop-gold 
-                           focus:ring-offset-2 dark:focus:ring-offset-zinc-900"
+                           focus:ring-offset-2 dark:focus:ring-offset-zinc-900 transform active:scale-[0.98] duration-200"
                             >
                                 {loading ? t("login.verifying") : t("login.verify")}
                             </button>

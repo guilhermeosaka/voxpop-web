@@ -181,18 +181,31 @@ export function DateTimePicker({ value, onChange, disabled = false, label, optio
                 type="button"
                 onClick={() => !disabled && setIsOpen(!isOpen)}
                 disabled={disabled}
-                className="w-full px-4 py-3 border-2 border-zinc-200 dark:border-zinc-700 rounded-xl bg-white dark:bg-zinc-900 text-left text-zinc-900 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-voxpop-gold/40 focus:border-voxpop-gold transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-between"
+                className="w-full px-4 py-3 border border-zinc-200/60 dark:border-zinc-800/60 rounded-xl 
+                bg-white/60 dark:bg-zinc-900/60 backdrop-blur-md shadow-sm text-left 
+                text-zinc-900 dark:text-zinc-100 
+                hover:border-zinc-300 dark:hover:border-zinc-700 hover:bg-white/80 dark:hover:bg-zinc-800/80
+                focus:outline-none focus:ring-2 focus:ring-voxpop-gold/20 focus:border-voxpop-gold 
+                transition-all duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed 
+                flex items-center justify-between"
             >
-                <span className={!selectedDate ? "text-zinc-400 dark:text-zinc-600" : ""}>
+                <span className={!selectedDate ? "text-zinc-400 dark:text-zinc-500 font-medium" : "font-medium"}>
                     {selectedDate ? `${formatDisplayDate(selectedDate)} ${formatDisplayTime(selectedTime)}` : "Selecione data e hora"}
                 </span>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     className="w-5 h-5 text-zinc-400"
                 >
-                    <path d="M5.25 12a.75.75 0 01.75-.75h8a.75.75 0 010 1.5h-8a.75.75 0 01-.75-.75zM6 13.25a.75.75 0 000 1.5h8a.75.75 0 000-1.5H6zM5.25 7a.75.75 0 01.75-.75h8a.75.75 0 010 1.5h-8A.75.75 0 015.25 7zM6 8.25a.75.75 0 000 1.5h8a.75.75 0 000-1.5H6z" />
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
                 </svg>
             </button>
 
@@ -200,14 +213,17 @@ export function DateTimePicker({ value, onChange, disabled = false, label, optio
                 <div className="fixed inset-0 z-40" onClick={() => setIsOpen(false)} />
             )}
 
-            {isOpen && (
+            {isOpen && dropdownPosition.width > 0 && (
                 <div
                     ref={dropdownRef}
-                    className="fixed z-50 bg-white dark:bg-zinc-900 border-2 border-zinc-200 dark:border-zinc-700 rounded-xl shadow-xl overflow-y-auto
+                    className="fixed z-50 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-xl
+                    border border-zinc-200/50 dark:border-zinc-800/50 rounded-2xl shadow-2xl overflow-y-auto
+                    ring-1 ring-black/5 dark:ring-white/5
+                    animate-in fade-in zoom-in-95 duration-200
                     [&::-webkit-scrollbar]:w-2
                     [&::-webkit-scrollbar-track]:bg-transparent
-                    [&::-webkit-scrollbar-thumb]:bg-zinc-300
-                    [&::-webkit-scrollbar-thumb]:dark:bg-zinc-700
+                    [&::-webkit-scrollbar-thumb]:bg-zinc-300/50
+                    [&::-webkit-scrollbar-thumb]:dark:bg-zinc-700/50
                     [&::-webkit-scrollbar-thumb]:rounded-full
                     [&::-webkit-scrollbar-thumb]:hover:bg-zinc-400
                     [&::-webkit-scrollbar-thumb]:dark:hover:bg-zinc-600"

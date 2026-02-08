@@ -73,7 +73,7 @@ export function LanguageSwitcher() {
             </button>
 
             {isOpen && (
-                <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-zinc-900 border border-zinc-200 
+                <div className="absolute right-0 mb-2 bottom-full w-48 bg-white dark:bg-zinc-900 border border-zinc-200 
                       dark:border-zinc-700 rounded-lg shadow-lg overflow-hidden z-50">
                     {languages.map((language) => {
                         const isSelected = i18n.language?.startsWith(language.code) || language.code.startsWith(i18n.language || "");

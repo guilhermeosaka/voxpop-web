@@ -4,7 +4,6 @@ import { useAuth } from "@/lib/auth";
 import { useTranslation } from "react-i18next";
 import Link from "next/link";
 import Image from "next/image";
-import { LanguageSwitcher } from "@/components/features/i18n/LanguageSwitcher";
 
 export function Navbar() {
     const { isAuthenticated, logout } = useAuth();
@@ -35,12 +34,11 @@ export function Navbar() {
                         </div>
                     </Link>
 
-                    {/* Actions */}
-                    <div className="flex items-center gap-2">
-                        {/* Language Switcher */}
-                        <LanguageSwitcher />
 
-                        {/* Create Poll Button - Only for authenticated users */}
+
+                    {/* Create Poll Button - Only for authenticated users */}
+
+                    <div className="flex items-center gap-2">
                         {isAuthenticated && (
                             <Link
                                 href="/create"
@@ -69,7 +67,10 @@ export function Navbar() {
                         ) : (
                             <Link
                                 href="/login"
-                                className="rounded-lg border border-voxpop-gold px-3 py-1.5 text-sm font-medium text-voxpop-brown transition-colors hover:bg-voxpop-gold-light dark:border-voxpop-gold dark:text-voxpop-gold dark:hover:bg-voxpop-gold/20"
+                                className="rounded-xl border border-zinc-200/60 dark:border-zinc-800/60 bg-white/60 dark:bg-zinc-900/60 
+                                backdrop-blur-md px-4 py-2 text-sm font-medium text-zinc-700 dark:text-zinc-200 
+                                transition-all hover:bg-white/80 dark:hover:bg-zinc-800/80 hover:text-voxpop-gold dark:hover:text-voxpop-gold
+                                hover:border-voxpop-gold/30 dark:hover:border-voxpop-gold/30 shadow-sm"
                             >
                                 {t("home.login")}
                             </Link>
@@ -77,6 +78,6 @@ export function Navbar() {
                     </div>
                 </div>
             </div>
-        </nav>
+        </nav >
     );
 }

@@ -43,39 +43,39 @@ export default function Home() {
     <div className="min-h-screen bg-zinc-50 dark:bg-black font-sans">
       <Navbar />
 
-      <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
 
         {/* Controls Header */}
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
           <div className="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 w-full sm:w-auto scrollbar-hide">
             <button
               onClick={() => setFilterMode("all")}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap
+              className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors whitespace-nowrap
                         ${filterMode === "all"
                   ? "bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900"
                   : "bg-white text-zinc-600 border border-zinc-200 hover:bg-zinc-50 dark:bg-zinc-900 dark:text-zinc-400 dark:border-zinc-800 dark:hover:bg-zinc-800"}`}
             >
-              All Polls
+              {t("home.filters.all")}
             </button>
             {isAuthenticated && (
               <>
                 <button
                   onClick={() => setFilterMode("my-polls")}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap
+                  className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors whitespace-nowrap
                                 ${filterMode === "my-polls"
                       ? "bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900"
                       : "bg-white text-zinc-600 border border-zinc-200 hover:bg-zinc-50 dark:bg-zinc-900 dark:text-zinc-400 dark:border-zinc-800 dark:hover:bg-zinc-800"}`}
                 >
-                  My Polls
+                  {t("home.filters.myPolls")}
                 </button>
                 <button
                   onClick={() => setFilterMode("my-votes")}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap
+                  className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors whitespace-nowrap
                                 ${filterMode === "my-votes"
                       ? "bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900"
                       : "bg-white text-zinc-600 border border-zinc-200 hover:bg-zinc-50 dark:bg-zinc-900 dark:text-zinc-400 dark:border-zinc-800 dark:hover:bg-zinc-800"}`}
                 >
-                  My Votes
+                  {t("home.filters.myVotes")}
                 </button>
               </>
             )}

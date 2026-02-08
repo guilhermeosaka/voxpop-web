@@ -93,12 +93,14 @@ export function PhoneNumberInput({
           onKeyDown={handleKeyDown}
           disabled={disabled}
           placeholder={t("login.phonePlaceholder")}
-          className="flex-1 px-4 py-2 border border-zinc-200 dark:border-zinc-700 rounded-lg
-                             bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100
-                             focus:outline-none focus:ring-2 focus:ring-voxpop-gold/20 focus:border-voxpop-gold
-                             disabled:opacity-50 disabled:cursor-not-allowed
-                             placeholder-zinc-400 dark:placeholder-zinc-500
-                             transition-all"
+          className="flex-1 px-4 h-[46px] border border-zinc-200/60 dark:border-zinc-800/60 rounded-xl
+                     bg-white/60 dark:bg-zinc-900/60 text-zinc-900 dark:text-zinc-100
+                     backdrop-blur-md shadow-sm
+                     hover:border-zinc-300 dark:hover:border-zinc-700 hover:bg-white/80 dark:hover:bg-zinc-800/80
+                     focus:outline-none focus:ring-2 focus:ring-voxpop-gold/20 focus:border-voxpop-gold
+                     disabled:opacity-50 disabled:cursor-not-allowed
+                     placeholder-zinc-400 dark:placeholder-zinc-500
+                     transition-all"
         />
       </div>
       {error && (

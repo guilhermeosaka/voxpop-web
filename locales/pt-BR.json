@@ -1,6 +1,6 @@
 {
     "common": {
-        "appName": "VoxPop",
+        "appName": "Voxpop",
         "language": "Idioma",
         "loading": "Carregando...",
         "error": "Erro",
@@ -47,6 +47,11 @@
         "noPolls": {
             "title": "Nenhuma enquete ainda",
             "description": "Volte mais tarde para novas enquetes."
+        },
+        "filters": {
+            "all": "Todas",
+            "myPolls": "Minhas Enquetes",
+            "myVotes": "Meus Votos"
         }
     },
     "poll": {
@@ -60,7 +65,7 @@
         },
         "createdByYou": "Criado por você",
         "create": {
-            "title": "Criar Nova Enquete",
+            "title": "Criar Enquete",
             "question": "Pergunta",
             "questionPlaceholder": "O que você quer perguntar?",
             "expiresAt": "Expira em",
@@ -82,5 +87,11 @@
             }
         },
         "loginToVote": "Entre para votar"
+    },
+    "sort": {
+        "newest": "Mais Recentes",
+        "oldest": "Mais Antigas",
+        "popular": "Populares",
+        "expiring": "Expirando"
     }
 }

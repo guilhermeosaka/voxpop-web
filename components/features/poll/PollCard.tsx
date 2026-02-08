@@ -3,6 +3,7 @@
 import { Poll, VoteMode, votePoll, deleteVote } from "@/lib/api";
 import { useAuth } from "@/lib/auth";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -12,6 +13,7 @@ interface PollCardProps {
 }
 
 export function PollCard({ poll, isAuthenticated = false }: PollCardProps) {
+    const router = useRouter();
     const { t } = useTranslation();
     const { accessToken } = useAuth();
     // Poll is expired only if expiresAt exists and is in the past
@@ -37,7 +39,13 @@ export function PollCard({ poll, isAuthenticated = false }: PollCardProps) {
 
     const handleVote = async (e: React.MouseEvent, optionId: string) => {
         e.preventDefault(); // Prevent Link navigation
-        if (!isAuthenticated || isExpired || !accessToken || loadingOption) return;
+
+        if (!isAuthenticated) {
+            router.push("/login");
+            return;
+        }
+
+        if (isExpired || !accessToken || loadingOption) return;
 
         setLoadingOption(optionId);
 
@@ -103,7 +111,7 @@ export function PollCard({ poll, isAuthenticated = false }: PollCardProps) {
                     : "ring-zinc-200 hover:ring-zinc-300 dark:ring-zinc-800 dark:hover:ring-zinc-700"
                 }`}
         >
-            <Link href={`/polls/${poll.id}`} className="absolute inset-0 z-0" />
+            {/* <Link href={`/polls/${poll.id}`} className="absolute inset-0 z-0" /> */}
             <div className="relative z-10 flex flex-col gap-4 pointer-events-none">
                 {/* Status Badge */}
                 <div className="flex items-start justify-between">
@@ -148,13 +156,13 @@ export function PollCard({ poll, isAuthenticated = false }: PollCardProps) {
                         <button
                             key={option.id}
                             onClick={(e) => handleVote(e, option.id)}
-                            disabled={!isAuthenticated || isExpired || isLoading}
+                            disabled={isExpired || isLoading}
                             className={`relative flex w-full items-center justify-between rounded-lg border px-4 py-3 text-left text-sm font-medium transition-all overflow-hidden
               ${isSelected
                                     ? "border-voxpop-gold bg-voxpop-gold-light text-voxpop-brown dark:bg-voxpop-gold/10 dark:text-voxpop-gold ring-1 ring-voxpop-gold"
                                     : "border-zinc-200 bg-transparent text-zinc-700 hover:bg-zinc-50 dark:border-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-800/50"
                                 }
-              ${!isAuthenticated || isExpired
+              ${isExpired
                                     ? "cursor-default opacity-100 hover:bg-transparent dark:hover:bg-transparent"
                                     : isSelected && poll.voteMode === VoteMode.MultipleChoice
                                         ? "cursor-default"
@@ -199,9 +207,12 @@ export function PollCard({ poll, isAuthenticated = false }: PollCardProps) {
                     );
                 })}
                 {!isAuthenticated && !isExpired && (
-                    <p className="mt-2 text-center text-xs text-zinc-400 dark:text-zinc-500">
+                    <Link
+                        href="/login"
+                        className="mt-2 text-center text-xs text-zinc-400 dark:text-zinc-500 hover:text-voxpop-gold dark:hover:text-voxpop-gold transition-colors"
+                    >
                         {t("poll.loginToVote")}
-                    </p>
+                    </Link>
                 )}
             </div>
         </div>
