@@ -7,12 +7,14 @@ import { useTranslation } from "react-i18next";
 import { PollCard } from "@/components/features/poll/PollCard";
 import { Navbar } from "@/components/layout/Navbar";
 import { SortSelect } from "@/components/ui/SortSelect";
+import { MaintenancePage } from "@/components/features/maintenance/MaintenancePage";
 
 export default function Home() {
   const { isAuthenticated, accessToken } = useAuth();
   const { t } = useTranslation();
   const [polls, setPolls] = useState<Poll[]>([]);
   const [loading, setLoading] = useState(true);
+  const [isMaintenance, setIsMaintenance] = useState(false);
 
   // Filter & Sort State
   const [sortBy, setSortBy] = useState<PollSortBy>(PollSortBy.TotalVotesDesc);
@@ -21,6 +23,7 @@ export default function Home() {
   useEffect(() => {
     const loadPolls = async () => {
       setLoading(true);
+      setIsMaintenance(false);
       try {
         const params: GetPollsParams = {
           sortBy,
@@ -30,6 +33,13 @@ export default function Home() {
         const data = await fetchPolls(accessToken || undefined, params);
         setPolls(data);
       } catch (error) {
+        if (error instanceof Error && (error.message === "503" || error.message === "Failed to fetch")) {
+          // Check if non-prod environment
+          const env = process.env.NEXT_PUBLIC_ENVIRONMENT || "development";
+          if (env !== "production" && env !== "prod") {
+            setIsMaintenance(true);
+          }
+        }
         console.error("Failed to fetch polls:", error);
       } finally {
         setLoading(false);
@@ -38,6 +48,10 @@ export default function Home() {
 
     loadPolls();
   }, [accessToken, isAuthenticated, sortBy, filterMode]); // Refetch when params change
+
+  if (isMaintenance) {
+    return <MaintenancePage />;
+  }
 
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-black font-sans">

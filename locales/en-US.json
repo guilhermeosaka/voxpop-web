@@ -93,5 +93,9 @@
         "oldest": "Oldest",
         "popular": "Popular",
         "expiring": "Expiring"
+    },
+    "maintenance": {
+        "title": "Environment Sleeping",
+        "description": "Saving infrastructure resources."
     }
 }

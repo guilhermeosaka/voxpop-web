@@ -75,14 +75,20 @@ export async function fetchPolls(token?: string, params: GetPollsParams = {}): P
         cache: "no-store",
       });
     }
-
     if (!res.ok) {
+      if (res.status === 503) {
+        throw new Error("503");
+      }
       throw new Error(`Failed to fetch polls: ${res.status}`);
     }
 
     const data: PollsResponse = await res.json();
     return data.items;
   } catch (error) {
+    // Re-throw if it's our 503 error, otherwise log and return empty
+    if (error instanceof Error && (error.message === "503" || error.message === "Failed to fetch")) {
+      throw error;
+    }
     console.error("Error fetching polls:", error);
     return [];
   }

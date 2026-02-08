@@ -93,5 +93,9 @@
         "oldest": "Mais Antigas",
         "popular": "Populares",
         "expiring": "Expirando"
+    },
+    "maintenance": {
+        "title": "Ambiente em Repouso",
+        "description": "Infra não é barato :'("
     }
 }
